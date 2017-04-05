@@ -85,6 +85,26 @@
 #  
 #  17. Review all FlowViewer directories and files for proper permissions
 #
+# ======================================================
+# Version 4.6.1 Release Notes
+#
+# Factor these files to make easier to install. The instructions below have
+# only been tested sufficiently to install into a Ubuntu docker instance.
+#
+# Get the zip file from the distribution 
+# unzip the package onto the Desktop
+# cd /var/www
+# sudo mv ~/Desktop/FlowViewer/html/ .
+# sudo mv ~/Desktop/FlowViewer/cgi-bin/ .
+# sudo chown -R www-data: html/
+# sudo find html -type f -exec chmod 664 {} + -o -type d -exec chmod 775 {} +
+# sudo chown -R www-data: cgi-bin
+# sudo chmod -R +x cgi-bin
+#
+# From http://stackoverflow.com/questions/28918996/proper-owner-of-var-www-html
+# ==============================
+#
+
 # Version 4.6 Release Notes
 #
 #  Emergency fix to FlowMontitor_Collector to fix $no_devices_or_exporters

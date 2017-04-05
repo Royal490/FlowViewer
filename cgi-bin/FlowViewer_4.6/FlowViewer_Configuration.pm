@@ -94,7 +94,7 @@ $dashboard_short         = "/FlowViewer_Dashboard";
 
 $flowviewer_data_directory = "/usr/local/flowviewer/";		# works for Ubuntu (no "/data" directory)
 $flow_data_directory     = $flowviewer_data_directory+"flows";
-$exporter_directory      = $flowviewer_data_directory"flows/all_routers";
+$exporter_directory      = $flowviewer_data_directory+"flows/all_routers";
 $flow_bin_directory      = "/usr/local/flow-tools/bin";
 $rrdtool_bin_directory   = "/usr/bin";
 

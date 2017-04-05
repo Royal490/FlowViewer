@@ -45,6 +45,7 @@
 #                                       New $silk_config_file
 #                                       FlowTracker to FlowMonitor name changes 
 #  J. Loiacono  01/26/2015      4.6     Removed $time_zone (now from system)
+#  R. Brown     04/04/2017      4.6.1   Factored FlowViewer_4.6 directory for easier distribution
 #
 #$Author$
 #$Date$
@@ -65,7 +66,7 @@ $FlowViewer_server       = "192.168.100.1"; # (IP address or hostname)
 
 # Service
 
-$FlowViewer_service      = "https";           # (http, or https)
+$FlowViewer_service      = "http";           # (http, or https)
 
 # Directories and Files:
 
@@ -91,17 +92,18 @@ $dashboard_short         = "/FlowViewer_Dashboard";
 #@dashboard_titles       = ();          # Set to empty if you have just the one nominal Dashboard
 @dashboard_titles        = ("Performance","SOC","NetOps"); # titles must be in the same order as the directories
 
-$flow_data_directory     = "/data/flows";
-$exporter_directory      = "/data/flows/all_routers";
+$flowviewer_data_directory = "/usr/local/flowviewer/";		# works for Ubuntu (no "/data" directory)
+$flow_data_directory     = $flowviewer_data_directory+"flows";
+$exporter_directory      = $flowviewer_data_directory"flows/all_routers";
 $flow_bin_directory      = "/usr/local/flow-tools/bin";
 $rrdtool_bin_directory   = "/usr/bin";
 
 # SiLK parameters
 
-$silk_data_directory     = "/data/flows";
+$silk_data_directory     = $flowviewer_data_directory+"flows";
 $silk_bin_directory      = "/usr/local/bin";
-$site_config_file        = "/data/flows/silk.conf";          # If left blank, will look for silk.conf in specified Data Rootdir (see User's Guide)
-$sensor_config_file      = "/data/flows/sensor.conf";
+$site_config_file        = $flowviewer_data_directory+"flows/silk.conf";          # If left blank, will look for silk.conf in specified Data Rootdir (see User's Guide)
+$sensor_config_file      = $flowviewer_data_directory+"flows/sensor.conf";
 $silk_compiled_localtime = "";          # Set to "Y" if you compiled SiLK with --enable-localtime switch
 
 $silk_capture_buffer_pre = (125 * 60);  # Start of SiLK file concatenation
@@ -117,7 +119,7 @@ $silk_switches_default   = "";          # General SiLK file structure info. silk
 
 # General parameters
 
-$version                 = "4.6";
+$version                 = "4.6.1";
 $no_devices_or_exporters = "N";         # Applies to special flow-tools environments only
 @devices                 = ("router_1","router_2","router_3","router_4","router_5","router_6"); # for flow-tools
 @ipfix_devices           = ("router_ipfix_1","router_ipfix_2","Site");   # for SiLK, if none: @ipfix_devices = ();

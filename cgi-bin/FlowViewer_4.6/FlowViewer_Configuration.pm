@@ -92,18 +92,19 @@ $dashboard_short         = "/FlowViewer_Dashboard";
 #@dashboard_titles       = ();          # Set to empty if you have just the one nominal Dashboard
 @dashboard_titles        = ("Performance","SOC","NetOps"); # titles must be in the same order as the directories
 
-$flowviewer_data_directory = "/usr/local/flowviewer/";		# works for Ubuntu (no "/data" directory)
-$flow_data_directory     = $flowviewer_data_directory+"flows";
-$exporter_directory      = $flowviewer_data_directory+"flows/all_routers";
+# flow-tools parameters
+
+$flow_data_directory     = "/data/flows";
+$exporter_directory      = "/data/flows/all_routers";
 $flow_bin_directory      = "/usr/local/flow-tools/bin";
 $rrdtool_bin_directory   = "/usr/bin";
 
 # SiLK parameters
 
-$silk_data_directory     = $flowviewer_data_directory+"flows";
+$silk_data_directory     = "/data/";
 $silk_bin_directory      = "/usr/local/bin";
-$site_config_file        = $flowviewer_data_directory+"flows/silk.conf";          # If left blank, will look for silk.conf in specified Data Rootdir (see User's Guide)
-$sensor_config_file      = $flowviewer_data_directory+"flows/sensor.conf";
+$site_config_file        = $silk_data_directory+"silk.conf";          # If left blank, will look for silk.conf in specified Data Rootdir (see User's Guide)
+$sensor_config_file      = $silk_data_directory+"sensors.conf";
 $silk_compiled_localtime = "";          # Set to "Y" if you compiled SiLK with --enable-localtime switch
 
 $silk_capture_buffer_pre = (125 * 60);  # Start of SiLK file concatenation
@@ -126,7 +127,7 @@ $no_devices_or_exporters = "N";         # Applies to special flow-tools environm
 @ipfix_storage           = ("router_ipfix_1:15G","router_ipfix_2:10G");  # If using FlowViewer_CleanSilk, set to storage requirements for each device
 $ipfix_default_device    = "";          # All initial, blank forms will have this selected instead of "Select Device"
 #@exporters              = ("192.168.200.1:New York Router","192.168.200.2:Prague Router");
-@exporters               = ();
+@exporters               = ("192.168.253.1:LEDE Router");
 
 $flow_capture_interval   = (35 * 60);
 $flow_file_length        = (15 * 60);

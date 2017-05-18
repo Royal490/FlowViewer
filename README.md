@@ -7,6 +7,7 @@ This repository is a clone of the original FlowViewer 4.6 files from Sourceforge
 
 This release does not change any code of the original files, but factors them 
 to make it easier to install in a Ubuntu docker instance.
+(This avoids Steps 3-5 on page 4 of FlowViewer.pdf which are a pain...)
 
 To use them, get the zip file from this github repository, unzip the package into /tmp,
 and execute these commands (you may need sudo...):

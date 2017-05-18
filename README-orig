@@ -85,25 +85,6 @@
 #  
 #  17. Review all FlowViewer directories and files for proper permissions
 #
-# ======================================================
-# Version 4.6.1 Release Notes
-# 4 April 2017
-#
-# This release does not change any code, but factors the files from 
-# FlowViewer 4.6 release to make it easier to install in a Ubuntu docker instance.
-#
-# Get the zip file from the github repository and unzip the package into /tmp
-# cd /var/www
-# sudo mv /tmp/FlowViewer/html/ .
-# sudo mv /tmp/FlowViewer/cgi-bin/ .
-# sudo chown -R www-data: html/
-# sudo find html -type f -exec chmod 664 {} + -o -type d -exec chmod 775 {} +
-# sudo chown -R www-data: cgi-bin
-# sudo chmod -R +x cgi-bin
-#
-# When complete, the docker instance will be available on github and docker.
-# ==============================
-#
 #
 # Version 4.6 Release Notes
 #
